@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="105dp"
+    >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Event_name"
+        android:id="@+id/EventName"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:textStyle="bold"
+        android:textSize="32dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Link_Of_image"
+        android:id="@+id/Image_Link"
+        android:layout_below="@+id/EventName"
+        android:textSize="@dimen/abc_text_size_small_material"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:visibility="invisible" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Event_Description"
+        android:layout_alignParentBottom="true"
+        android:textSize="@dimen/abc_text_size_small_material"
+        android:id="@+id/EventDescription"
+        android:visibility="invisible" />
+
+</RelativeLayout>
