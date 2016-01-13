@@ -4,26 +4,57 @@
     android:layout_height="match_parent"
     tools:context=".ThirdActivity">
 
-    <Button
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tableLayout"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="27dp">
+
+    </TableLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Follow Us On..."
+        android:id="@+id/textView3"
+        android:layout_marginTop="33dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <ImageButton
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
         android:id="@+id/button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/button2"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="41dp"
-        android:onClick="showme"
-        android:text="Facebook " />
+        android:src="@drawable/logo"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/tableLayout"
+        android:onClick="showme1"/>
 
+    <ImageButton
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:id="@+id/button"
+        android:layout_above="@+id/imageButton"
+        android:src="@drawable/download"
+        android:onClick="showme2"
+        android:layout_below="@+id/textView3"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="48dp" />
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/button1"
-        android:layout_centerVertical="true"
-        android:onClick="showme1"
-        android:text="College site"
-         />
-
-
+    <ImageButton
+        android:layout_width="match_parent"
+        android:layout_height="134dp"
+        android:id="@+id/imageButton"
+        android:layout_above="@+id/button1"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:src="@drawable/facebooklogovector"
+        android:onClick="showme"/>
 </RelativeLayout>

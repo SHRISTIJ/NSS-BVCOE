@@ -32,6 +32,14 @@ public class Social_media extends ActionBarActivity {
         startActivity(i);
 
     }
+    public void showme2(View v)
+    {
+        Intent i=new Intent();
+        //youtube
+        i.setData(Uri.parse("https://www.youtube.com/channel/UCKvjzCWpxQJ6Zrhm92CZSew"));
+        startActivity(i);
+
+    }
 
 
     @Override

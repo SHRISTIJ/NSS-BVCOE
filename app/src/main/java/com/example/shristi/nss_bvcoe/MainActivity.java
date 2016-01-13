@@ -4,10 +4,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.text.Html;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -28,14 +25,6 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-       /* FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });*/
 TextView mtextView=(TextView) findViewById(R.id.mtextView);
         String htmlString="<B><u>ABOUT US</u></B>";
         mtextView.setText(Html.fromHtml(htmlString));
@@ -103,16 +92,17 @@ TextView mtextView=(TextView) findViewById(R.id.mtextView);
             final Context context = this;
             final Dialog dialog = new Dialog(context);
             dialog.setContentView(R.layout.custom);
-            dialog.setTitle("\t\t\t\t\t\t\t\tContact Us");
+            dialog.setTitle("\t\t\t\t\t\t\tContact Us");
             TextView text = (TextView) dialog.findViewById(R.id.text);
-            text.setText(" ruyt]ytg ");
+            text.setText("For any suggestions/queries please contact us through following details:\n" +
+                    " \n" +
+                    "Address: A-4,Paschim Vihar, New Delhi 110063,\n" +
+                    "\n" +
+                    "Contact No.: 011-25278444/43-225(ext)\n" +
+                    "\n"+
+                    "Email-Id: bvpcoe@hotmail.com"+
+                    ".");
             dialog.show();
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
