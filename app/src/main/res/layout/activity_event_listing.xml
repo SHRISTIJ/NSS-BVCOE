@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:text="EVENTS"
         android:textStyle="bold"
-        android:textSize="@dimen/abc_text_size_headline_material" />
+        android:textSize="33dp" />
 
     <View
         android:layout_width="fill_parent"

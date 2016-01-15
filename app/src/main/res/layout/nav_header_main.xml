@@ -10,7 +10,7 @@
     android:gravity="bottom">
 
     <ImageView android:layout_width="100dp" android:layout_height="85dp"
-        android:src="@drawable/ic_stat_nssp" android:id="@+id/imageView" />
+        android:src="@drawable/nss" android:id="@+id/imageView" />
 
     <TextView
         android:layout_width="wrap_content"
