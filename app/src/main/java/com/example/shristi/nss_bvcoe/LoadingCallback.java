@@ -19,12 +19,6 @@ public class LoadingCallback<T> implements AsyncCallback<T>
 {
   private Context context;
   private ProgressDialog progressDialog;
-
-  /**
-   * Create an instance with message "Loading...".
-   *
-   * @param context context to which ProgressDialog should be attached
-   */
   public LoadingCallback(Context context)
   {
     this( context, context.getString( R.string.loading_empty ) );
@@ -54,7 +48,6 @@ public class LoadingCallback<T> implements AsyncCallback<T>
     this( context );
     progressDialog.show();
   }
-
   /**
    * Creates an instance and can immediately show ProgressDialog with given message
    *
@@ -78,7 +71,7 @@ public class LoadingCallback<T> implements AsyncCallback<T>
   public void handleFault( BackendlessFault fault )
   {
     progressDialog.dismiss();
-    DialogHelper.createErrorDialog( context, "BackendlessFault", fault.getMessage() ).show();
+    DialogHelper.createErrorDialog( context, "No Network Connection", "Please check your internet connection and try again later" ).show();
   }
 
   /**

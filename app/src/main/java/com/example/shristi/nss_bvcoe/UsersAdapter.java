@@ -30,9 +30,7 @@ public class UsersAdapter extends ArrayAdapter<Users> {
         mInflater = (LayoutInflater) context.getSystemService( Context.LAYOUT_INFLATER_SERVICE );
     }
 
-    /**
-     * {@inheritDoc}
-     */
+
     @Override
     public View getView( int position, View convertView, ViewGroup parent )
     {
@@ -47,8 +45,6 @@ public class UsersAdapter extends ArrayAdapter<Users> {
         UsersNameView.setText( item.getName1() );
 
         DescriptionView.setText(item.getClasses());
-        //String locationsNumberTextTemplate = getContext().getResources().getQuantityString( R.plurals.Users_locations, item.getLocations().size() );
-        // locationsNumberView.setText( String.format(locationsNumberTextTemplate, item.getLocations().size()) );
         link =item.getLink();
         cuisineView.setText( link );
         return view;

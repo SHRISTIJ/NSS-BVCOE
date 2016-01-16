@@ -25,23 +25,18 @@ public class Events extends ListActivity {
     protected void onCreate( Bundle savedInstanceState )
     {
         super.onCreate(savedInstanceState);
-
         String appVersion = "v1";
         Backendless.initApp(this, "A0EC8CE8-BC06-EC54-FFE2-9B50776AAA00", "AE1E553B-0836-C1E1-FFAF-96E976956000", appVersion);
         setContentView(R.layout.activity_event_listing);
         adapter = new UsersAdapter(Events.this, R.layout.list_item_event, totalusers );
         setListAdapter( adapter );
-
         QueryOptions queryOptions = new QueryOptions();
         BackendlessDataQuery query = new BackendlessDataQuery( queryOptions );
-
         Backendless.Data.of( Users.class ).find(query, new LoadingCallback<BackendlessCollection<Users>>(this, getString(R.string.loading_events), true) {
             @Override
             public void handleResponse(BackendlessCollection<Users> usersBackendlessCollection) {
                 users = usersBackendlessCollection;
-
                 addMoreItems(usersBackendlessCollection);
-
                 super.handleResponse(usersBackendlessCollection);
             }
         });
