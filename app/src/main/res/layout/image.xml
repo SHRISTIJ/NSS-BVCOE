@@ -28,7 +28,7 @@
         android:layout_alignLeft="@+id/image1"
         android:layout_alignStart="@+id/image1"
         android:layout_below="@+id/textView"
-        android:paddingTop="13dp"
+        android:paddingTop="10dp"
         android:paddingBottom="7dp"
         android:layout_marginLeft="7dp" />
 
