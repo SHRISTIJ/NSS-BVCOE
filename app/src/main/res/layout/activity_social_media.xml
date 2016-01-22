@@ -34,19 +34,21 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_above="@+id/tableLayout"
-        android:onClick="showme1"/>
+        android:onClick="showme1"
+        android:background="#3f5469" />
 
     <ImageButton
         android:layout_width="match_parent"
         android:layout_height="120dp"
         android:id="@+id/button"
         android:layout_above="@+id/imageButton"
-        android:src="@drawable/download"
+        android:src="@drawable/h"
         android:onClick="showme2"
         android:layout_below="@+id/textView3"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="48dp" />
+        android:layout_marginTop="48dp"
+        android:background="#a3f3ec" />
 
     <ImageButton
         android:layout_width="match_parent"
@@ -55,6 +57,7 @@
         android:layout_above="@+id/button1"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:src="@drawable/facebooklogovector"
-        android:onClick="showme"/>
+        android:src="@drawable/f"
+        android:onClick="showme"
+        android:background="#77b6d8" />
 </RelativeLayout>
