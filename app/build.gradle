@@ -26,4 +26,6 @@ dependencies {
     compile 'com.android.support:design:23.1.0'
     compile files('libs/backendless.jar')
     compile files('libs/glide-3.6.1.jar')
+    compile files('libs/okhttp-2.7.0.jar')
+    compile files('libs/okio-1.0.0.jar')
 }

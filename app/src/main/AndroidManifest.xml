@@ -18,6 +18,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".Social_media"/>
+        <activity android:name=".Suggestion" />
         <activity android:name=".Events"/>
         <activity android:name=".image"/>
         <service android:name="com.backendless.AndroidService"></service>

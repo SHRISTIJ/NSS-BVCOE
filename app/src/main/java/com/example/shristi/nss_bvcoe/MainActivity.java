@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity
             dialog.setContentView(R.layout.custom);
             dialog.setTitle("\t\t\t\t\t\t\tContact Us");
             TextView text = (TextView) dialog.findViewById(R.id.text);
-            text.setText("For any suggestions/queries please contact us through following details:\n" +
+            text.setText("For more information you may contact us at:-\n" +
                     " \n" +
                     "Address: A-4,Paschim Vihar, New Delhi 110063,\n" +
                     "\n" +
@@ -81,6 +81,9 @@ public class MainActivity extends AppCompatActivity
                     "Email-Id: bvcoe.nss@gmail.com"+
                     ".");
             dialog.show();
+        }else if (id == R.id.nav_feedback) {
+            Intent i = new Intent(getApplicationContext(), Suggestion.class);
+            startActivity(i);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
