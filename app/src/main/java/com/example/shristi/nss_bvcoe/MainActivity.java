@@ -4,14 +4,14 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Html;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
+import android.text.Html;
 import android.view.MenuItem;
 import android.widget.TextView;
 
@@ -25,11 +25,17 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        CustomPagerAdapter   mCustomPagerAdapter = new CustomPagerAdapter(this);
+
+        ViewPager mViewPager = (ViewPager) findViewById(R.id.pager);
+        mViewPager.setAdapter(mCustomPagerAdapter);
+
+
         TextView mtextView=(TextView) findViewById(R.id.mtextView);
         String htmlString="<B><u>ABOUT US</u></B>";
         mtextView.setText(Html.fromHtml(htmlString));
         TextView text = (TextView) findViewById(R.id.text);
-        text.setText(" ■ Faculty Coordinators:\nDr. Anil Kumar (NSS Officer)\n\n ■ Description about the cell:\nThe National Service Scheme (NSS) was established in India on September 24, 1969.\nThe NSS is an Indian government-sponsored public service program conducted by the Department of Youth Affairs and Sports of the Government of India.\nIn Bharati Vidyapeeth’s College of Engineering, New Delhi;\nNSS Unit  had started in 2013 under the guidance of NSS officer Dr. Anil Kumar (A.P. in Physics Applied Sc. Deptt.)");
+        text.setText(" ■ Faculty Coordinators:\nDr. Anil Kumar (NSS Officer)\n\n ■ Student Representatives:\nLakshay Mutreja & Meenal Gupta\n\n ■ Description about the cell:\nThe National Service Scheme (NSS) was established in India on September 24, 1969.\nThe NSS is an Indian government-sponsored public service program conducted by the Department of Youth Affairs and Sports of the Government of India.\nIn Bharati Vidyapeeth’s College of Engineering, New Delhi;\nNSS Unit  had started in 2013 under the guidance of NSS officer Dr. Anil Kumar (A.P. in Physics Applied Sc. Deptt.)\n\nMade By:\nShristi Jain, Gourav Rastogi and Aishwarya Goel");
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
