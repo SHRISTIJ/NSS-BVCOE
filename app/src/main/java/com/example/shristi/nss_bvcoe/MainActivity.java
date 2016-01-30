@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
@@ -64,32 +65,41 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_event) {
-            Intent i = new Intent(getApplicationContext(), Events.class);
+
+        if (id == R.id.nav_home) {
+            Intent i = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(i);
 
+        }else if (id == R.id.nav_event) {
+           FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            transaction.add(R.id.container, new Events(), "Event");
+            transaction.commit();
+
         } else if (id == R.id.nav_media) {
-            Intent i = new Intent(getApplicationContext(), Social_media.class);
-            startActivity(i);
+
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            transaction.add(R.id.container, new Social_media(), "SocialMedia");
+            transaction.commit();
 
         } else if (id == R.id.nav_contact) {
             final Context context = this;
             final Dialog dialog = new Dialog(context);
             dialog.setContentView(R.layout.custom);
-            dialog.setTitle("\t\t\t\t\t\t\tContact Us");
+            dialog.setTitle(" CONTACT US");
             TextView text = (TextView) dialog.findViewById(R.id.text);
-            text.setText("For more information you may contact us at:-\n" +
+            text.setText("\n For more information you may contact us at:-\n" +
                     " \n" +
-                    "Address: A-4,Paschim Vihar, New Delhi 110063,\n" +
+                    " Address: A-4,Paschim Vihar, New Delhi 110063,\n" +
                     "\n" +
-                    "Contact No.: 011-25278444/43-225(ext)\n" +
+                    " Contact No.: 011-25278444/43-225(ext)\n" +
                     "\n"+
-                    "Email-Id: bvcoe.nss@gmail.com"+
+                    " Email-Id: bvcoe.nss@gmail.com"+
                     ".");
             dialog.show();
         }else if (id == R.id.nav_feedback) {
-            Intent i = new Intent(getApplicationContext(), Suggestion.class);
-            startActivity(i);
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            transaction.add(R.id.container, new Suggestion(), "Suggestions");
+            transaction.commit();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

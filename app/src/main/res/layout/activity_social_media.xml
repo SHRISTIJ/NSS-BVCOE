@@ -1,20 +1,14 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_marginTop="?attr/actionBarSize"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ThirdActivity">
+    android:background="@android:color/white"
+    android:id="@+id/scrollView"
+    >
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
-
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/tableLayout"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="27dp">
-
-    </TableLayout>
 
     <TextView
         android:layout_width="wrap_content"
@@ -29,35 +23,35 @@
     <ImageButton
         android:layout_width="match_parent"
         android:layout_height="120dp"
-        android:id="@+id/button1"
+        android:id="@+id/button_showme1"
         android:src="@drawable/logo"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_above="@+id/tableLayout"
-        android:onClick="showme1"
-        android:background="#3f5469" />
+        android:background="#3f5469"
+        android:layout_below="@+id/button_showme"
+        android:layout_centerHorizontal="true" />
 
     <ImageButton
         android:layout_width="match_parent"
         android:layout_height="120dp"
-        android:id="@+id/button"
-        android:layout_above="@+id/imageButton"
+        android:id="@+id/button_showme2"
         android:src="@drawable/h"
-        android:onClick="showme2"
-        android:layout_below="@+id/textView3"
-        android:layout_alignParentLeft="true"
+        android:layout_alignParentLeft="false"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="48dp"
-        android:background="#a3f3ec" />
+        android:layout_marginTop="89dp"
+        android:background="#a3f3ec"
+        android:layout_centerHorizontal="true" />
 
     <ImageButton
         android:layout_width="match_parent"
         android:layout_height="134dp"
-        android:id="@+id/imageButton"
-        android:layout_above="@+id/button1"
+        android:id="@+id/button_showme"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
+        android:layout_alignParentStart="false"
         android:src="@drawable/f"
-        android:onClick="showme"
-        android:background="#77b6d8" />
+        android:background="#77b6d8"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/button_showme2"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>
+    </ScrollView>

@@ -1,38 +1,45 @@
 package com.example.shristi.nss_bvcoe;
 
-import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
+
 import com.backendless.Backendless;
 import com.backendless.BackendlessCollection;
 import com.backendless.persistence.BackendlessDataQuery;
 import com.backendless.persistence.QueryOptions;
+
 import java.util.ArrayList;
 import java.util.List;
-public class Events extends ListActivity {
+
+public class Events extends Fragment {
 
     private BackendlessCollection<Users> users;
     private List<Users> totalusers = new ArrayList<>();
     private boolean isLoadingItems = false;
     private UsersAdapter adapter;
 
-    @Override
-    protected void onCreate( Bundle savedInstanceState )
-    {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         String appVersion = "v1";
-        Backendless.initApp(this, "A0EC8CE8-BC06-EC54-FFE2-9B50776AAA00", "AE1E553B-0836-C1E1-FFAF-96E976956000", appVersion);
-        setContentView(R.layout.activity_event_listing);
-        adapter = new UsersAdapter(Events.this, R.layout.list_item_event, totalusers );
-        setListAdapter( adapter );
+        Backendless.initApp(getContext(), "A0EC8CE8-BC06-EC54-FFE2-9B50776AAA00", "AE1E553B-0836-C1E1-FFAF-96E976956000", appVersion);
+        View view = inflater.inflate(R.layout.activity_event_listing, container, false);
+        ListView list = (ListView) view.findViewById(R.id.listview );
+        adapter = new UsersAdapter(getContext(), R.layout.list_item_event, totalusers );
+        list.setAdapter(adapter);
+
         QueryOptions queryOptions = new QueryOptions();
         BackendlessDataQuery query = new BackendlessDataQuery( queryOptions );
-        Backendless.Data.of( Users.class ).find(query, new LoadingCallback<BackendlessCollection<Users>>(this, getString(R.string.loading_events), true) {
+        Backendless.Data.of( Users.class ).find(query, new LoadingCallback<BackendlessCollection<Users>>(getContext(), getString(R.string.loading_events), true) {
             @Override
             public void handleResponse(BackendlessCollection<Users> usersBackendlessCollection) {
                 users = usersBackendlessCollection;
@@ -41,37 +48,31 @@ public class Events extends ListActivity {
             }
         });
 
-        ListView list = (ListView) findViewById( android.R.id.list );
-        list.setOnScrollListener( new AbsListView.OnScrollListener()
-        {
+        list.setOnScrollListener(new AbsListView.OnScrollListener() {
             @Override
-            public void onScrollStateChanged( AbsListView view, int scrollState )
-            {
+            public void onScrollStateChanged(AbsListView view, int scrollState) {
 
             }
 
             @Override
-            public void onScroll( AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount )
-            {
-                if( needToLoadItems( firstVisibleItem, visibleItemCount, totalItemCount ) )
-                {
+            public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+                Log.d("Event","scrolled");
+                if (needToLoadItems(firstVisibleItem, visibleItemCount, totalItemCount)) {
                     isLoadingItems = true;
 
-                    users.nextPage( new LoadingCallback<BackendlessCollection<Users>>( Events.this )
-                    {
+                    users.nextPage(new LoadingCallback<BackendlessCollection<Users>>(getContext()) {
                         @Override
-                        public void handleResponse( BackendlessCollection<Users> nextPage )
-                        {
+                        public void handleResponse(BackendlessCollection<Users> nextPage) {
                             users = nextPage;
 
-                            addMoreItems( nextPage );
+                            addMoreItems(nextPage);
 
                             isLoadingItems = false;
                         }
-                    } );
+                    });
                 }
             }
-        } );
+        });
 
        list.setAdapter(adapter);
 
@@ -81,14 +82,15 @@ public class Events extends ListActivity {
                 TextView cuisineView = (TextView) view.findViewById(R.id.Image_Link );
                 TextView DescriptionView = (TextView) view.findViewById( R.id.EventDescription );
 
-              image.link = cuisineView.getText().toString();
-                image.disc= DescriptionView.getText().toString();
-                Intent i = new Intent(getApplicationContext(), image.class);
+              Image.link = cuisineView.getText().toString();
+                Image.disc= DescriptionView.getText().toString();
+                Intent i = new Intent(getContext(), Image.class);
                         startActivity(i);
                 }
 
         });
 
+        return view;
     }
 
     /**

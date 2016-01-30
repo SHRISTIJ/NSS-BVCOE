@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.shristi.nss_bvcoe" >
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:allowBackup="true"
         android:icon="@drawable/nss"
@@ -17,11 +17,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Social_media"/>
-        <activity android:name=".Suggestion" />
-        <activity android:name=".Events"/>
-        <activity android:name=".image"/>
-        <service android:name="com.backendless.AndroidService"></service>
+        <activity android:name=".Image"/>
+
+        <service android:name="com.backendless.AndroidService"/>
     </application>
 
 </manifest>

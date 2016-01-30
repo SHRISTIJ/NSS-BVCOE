@@ -1,11 +1,13 @@
 package com.example.shristi.nss_bvcoe;
 
-import android.app.Activity;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -20,7 +22,7 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 
-public class Suggestion extends Activity{
+public class Suggestion extends Fragment {
     public static final MediaType FORM_DATA_TYPE
             = MediaType.parse("application/x-www-form-urlencoded; charset=utf-8");
     //URL derived from form URL
@@ -31,16 +33,16 @@ public class Suggestion extends Activity{
     private Context context;
     private EditText eText;
     @Override
-    protected void onCreate(Bundle savedInstanceState){
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_blank);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+        View view = inflater.inflate(R.layout.fragment_blank, container, false);
+        //setContentView(R.layout.fragment_blank);
 
         //save the activity in a context variable to be used afterwards
-        context =this;
+      //  context =this;
 
         //Get references to UI elements in the layout
-        Button sendButton = (Button)findViewById(R.id.button2);
-        eText = (EditText)findViewById(R.id.editText);
+        Button sendButton = (Button)view.findViewById(R.id.button2);
+        eText = (EditText)view.findViewById(R.id.editText);
 
         sendButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,6 +63,7 @@ public class Suggestion extends Activity{
                       );
             }
         });
+        return view;
 
     }
 
